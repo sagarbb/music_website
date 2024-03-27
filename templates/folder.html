@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Pegasus Music</title>
+{% endblock %}
+
+
+{% block body %}
+{% for folder in folders %}
+<span class="gfg">
+  <a href="{% url 'home' %}"><img class="adding-music mt-5 ml-4" src="{% static 'images/default folder.png' %}" style="width: 200px; height: 200px;">
+  <span class="text-container">
+      <h3>{{folder.name}}</h3>
+  </a> 
+  
+  </span>
+</span>
+{% endfor %}
+
+<span>
+  <a href="http://127.0.0.1:8000/admin/app/folder/add/"><img class="adding-music mt-5 ml-4" src="{% static 'images/+img.png' %}" alt="" style="width: 200px; height: 200px;"></a>
+</span>
+
+{% endblock %}

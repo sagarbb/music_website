@@ -1,0 +1,55 @@
+*
+{
+    margin:0px;
+}
+.navbar-nav
+{
+    margin-left: 1000px;
+}
+body
+{
+    background-color: rgb(175, 165, 165);
+}
+.card
+{
+   
+    border-radius: 15px;
+    
+    box-shadow: 0 15px 25px rgba(129, 124, 124, 1);
+    
+}
+.card-img-top
+{
+   
+    border-radius: 10px;
+    
+}
+.adding-music
+{
+    padding: 10px;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+
+}
+
+.gfg {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+}
+
+
+.text-container {
+    position: absolute;
+    color: white;
+    left: 30%;
+    top: 30%;
+    right: 30%;
+    bottom: 10%;
+    transform: translate(50%, 50%);
+    background-color: rgba(41, 41, 41, 0.0);
+    text-decoration: none;
+    padding: 20px;
+}

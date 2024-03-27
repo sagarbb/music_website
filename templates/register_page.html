@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Pegasus Music</title>
+{% endblock %}
+
+
+{% block body %}
+
+{%  if messages %}
+<div class="notification-container">
+    <div class="notification">
+        {% for message in messages %}
+        <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+        {% endfor %}
+        <!-- {% for msg in messages %}
+        <div class="alert-danger">{{msg}}</div>
+        {% endfor%} -->
+    </div>
+</div>
+<script>
+    var cross = document.getElementById('cross')
+    cross.addEventListener('click', ()=> {
+        document.getElementsByClassName('notification-container')[0].style.display = 'none';
+    })
+</script>
+{% endif %}
+
+    <center>
+        <div class="container ">
+            <h1 class="signup-heading">Sign Up</h1>
+              <form action="" method="POST">
+                {% csrf_token %}
+                
+                      {{ form.as_p }}
+      
+              <button class="signup-button">Sign up</button>
+      
+              <p class="login-link">Already Have an account?? <a href="{% url 'login_user' %}">Log in</a></p>
+          </div>
+    </center>
+   
+
+
+{% endblock %}

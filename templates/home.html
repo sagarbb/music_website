@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Pegasus Music</title>
+{% endblock %}
+
+
+{% block body %}
+<nav class="navbar navbar-dark bg-dark">
+  <form class="form-inline">
+    <a href="#" class="btn btn-outline-success" type="button">Music Tracks</a>
+    <a href="{% url 'folder' %}"class="btn btn-sm btn-outline-secondary" type="button">My Folder</a>
+  </form>
+</nav>
+
+
+          {% if username.is_authenticated %}
+          <div class="container ">
+            <div class="row">
+                {% for music in musics %}
+                <div class="col-lg-4 my-4">
+                    <div class="card shadow-lg bg-dark text-light" style="width: 21rem; height: 20rem;">
+                        <img src="/media/{{music.album}}" class="card-img-top" alt="..." height="150px">
+                        <div class="card-body ">
+                          <h5 class="card-title"><u>{{music.title}}</u> <br><small>by {{music.artist}} <br> {{music.genre}}</small>  <i class="fa-regular fa-heart"></i></h5>
+                          <audio controls>
+                            <source src="/media/{{music.audio}}" type="audio/mpeg">
+                            
+                          </audio>
+                        </div>
+                      </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+          {% else %}
+          <div class="container ">
+            <div class="row">
+                {% for music in musics %}
+                <div class="col-lg-4 my-4">
+                    <div class="card shadow-lg bg-dark text-light" style="width: 21rem; height: 20rem;">
+                        <img src="/media/{{music.album}}" class="card-img-top" alt="..." height="150px">
+                        <div class="card-body ">
+                          <h5 class="card-title"><u>{{music.title}}</u> <br><small>by {{music.artist}} <br> {{music.genre}}</small></h5>
+                          <audio controls>
+                            <source src="/media/{{music.audio}}" type="audio/mpeg">
+                          </audio>
+                        </div>
+                      </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+          {% endif %}
+
+{% endblock %}
